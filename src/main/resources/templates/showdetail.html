@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Job Detail</title>
+    <div th:insert="base :: head"></div>
+</head>
+<body>
+<div th:insert="base :: navlinks"></div>
+<br>
+<div class="container">
+    <div class="jumbotron">
+        <h1 style="color: blue;">Job Detail</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <p>Date:</p>
+                </div>
+                <div class="col-sm-8">
+                    <span th:text="${#dates.format(job.postedDate, 'dd-MMM-yyyy')}"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p>Job Title:</p>
+                </div>
+                <div class="col-sm-8">
+                    <span th:text="${job.title}"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p>Job Description:</p>
+                </div>
+                <div class="col-sm-8">
+                    <span style="text-wrap: normal" th:text="${job.description}"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p>Author:</p>
+                </div>
+                <div class="col-sm-8">
+                    <span th:text="${job.author}"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5">
+                    <p>Contact Phone:</p>
+                </div>
+                <div class="col-sm-7">
+                    <span th:text="${job.phone}"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:insert="base :: footer"></div>
+<div th:insert="base :: bootstrapScripts"></div>
+</body>
+</html>

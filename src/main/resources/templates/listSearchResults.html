@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Home</title>
+    <title>Title</title>
     <div th:insert="base :: head"></div>
 </head>
 <body>
@@ -9,7 +9,7 @@
 <br>
 <div class="container">
     <div class="jumbotron">
-        <h1>Available Jobs</h1>
+        <h1 style="color: blue">Search Results</h1>
         <table>
             <tr>
                 <th>Date Posted &nbsp;&nbsp;</th>
@@ -17,7 +17,7 @@
                 <th>Job Description &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                 <th>Author &nbsp;&nbsp;</th>
                 <th>Contact Phone&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                <th>Details</th>
+                <th>Actions</th>
             </tr>
             <tr th:each="job : ${jobs}">
                 <td th:text="${#dates.format(job.postedDate, 'dd-MMM-yyyy')}"></td>
@@ -26,13 +26,16 @@
                 <td th:text="${job.author}"> </td>
                 <td th:text="${job.phone}"> </td>
                 <td>
+                    <span th:if="${user.id == job.user.id}">
+                        <a th:href="@{/update/{id}(id=${job.id})}">Update</a>
+                        <a th:href="@{/delete/{id}(id=${job.id})}">Delete</a>
+                    </span>
                     <a th:href="@{/detail/{id}(id=${job.id})}">Details</a>
                 </td>
             </tr>
         </table>
     </div>
 </div>
-<br>
 <div th:insert="base :: footer"></div>
 <div th:insert="base :: bootstrapScripts"></div>
 </body>

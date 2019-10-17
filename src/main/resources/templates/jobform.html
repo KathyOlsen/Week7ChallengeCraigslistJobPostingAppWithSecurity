@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title style="color: blue;">New Job Form</title>
+    <div th:insert="base :: head"></div>
+</head>
+<body>
+<div th:insert="base :: navlinks"></div>
+<br>
+<div class="container">
+    <div class="jumbotron">
+        <h1>New Job Form</h1>
+        <form action="#" th:action="@{/processjob}" th:object="${job}" method="post">
+            <input type="hidden" th:field="*{id}" />
+            <input type="hidden" th:field="*{postedDate}" />
+            Title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" th:field="*{title}" />
+            <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+            <br>
+            Description:&nbsp;&#8239;<textarea rows="3" th:field="*{description}" />
+            <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+            <br>
+            Author:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" th:field="*{author}" />
+            <span th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></span>
+            <br>
+            Phone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" th:field="*{phone}" />
+            <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+            <br>
+            <button type="submit" style="background-color: darkblue; color: lightyellow"
+                    onclick="confirmation()"><b>Submit</b></button>
+        </form>
+    </div>
+</div>
+<div th:insert="base :: footer"></div>
+<div th:insert="base :: bootstrapScripts"></div>
+<script th:src="@{/alerts.js}"></script>
+</body>
+</html>

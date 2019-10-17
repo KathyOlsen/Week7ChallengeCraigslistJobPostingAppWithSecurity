@@ -43,10 +43,6 @@ public class SecurityController {
         return "login";
     }
 
-    @RequestMapping("/secure")
-    public String secure(){
-        return "secure";
-    }
 
     @RequestMapping("/admin")
     public String admin(){

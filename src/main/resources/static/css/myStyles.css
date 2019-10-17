@@ -1,6 +1,6 @@
 body{
-    /*background-image: url(https://res.cloudinary.com/dhg2lpfid/image/upload/v1570788662/parking-lot-300x197_kfbcew.jpg);*/
-    background-color: deepskyblue;
+    background-image: url(https://res.cloudinary.com/dhg2lpfid/image/upload/v1570167265/Attachment-1_1_vgra0i.jpg);
+    /*background-color: deepskyblue;*/
     background-size: cover;
     /*font-family: 'Scheherazade', serif;*/
     font-size: 18px;
@@ -36,6 +36,8 @@ p{
 
 button{
     alignment: center;
+    background-color: darkblue;
+    color: lightyellow;
 }
 
 .container{
