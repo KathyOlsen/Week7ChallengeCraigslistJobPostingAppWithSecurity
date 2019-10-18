@@ -7,8 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Collection;
-import java.util.Date;
+import java.util.*;
 
 @Controller
 public class HomeController {
@@ -61,8 +60,21 @@ public class HomeController {
     public String processSearch(Model model,
                                 @RequestParam(name="search") String search){
         model.addAttribute("user", userService.getUser());
-        model.addAttribute("jobs", jobRepository
-                .findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCaseOrAuthorContainingIgnoreCase(search, search, search));
+        String[] searchS = search.split(" ");
+        Set<Job> jobs = new HashSet<>();
+        if(searchS.length == 1) {
+            model.addAttribute("jobs", jobRepository
+                    .findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCaseOrAuthorContainingIgnoreCase(search, search, search));
+        }else{
+            for(String word : searchS){
+                ArrayList<Job> jobHolder = jobRepository
+                        .findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCaseOrAuthorContainingIgnoreCase(word, word, word);
+                for(Job x : jobHolder){
+                    jobs.add(x);
+                }
+            }
+            model.addAttribute("jobs", jobs);
+        }
         return "listSearchResults";
     }
 
