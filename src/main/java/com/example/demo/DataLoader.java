@@ -24,7 +24,7 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception{
-//        if(roleRepository.findAll() == null) {
+        if(roleRepository.findByRole("'ADMIN'") == null & roleRepository.findByRole("'USER'") == null) {
             roleRepository.save(new Role("USER"));
             roleRepository.save(new Role("ADMIN"));
 
@@ -34,7 +34,7 @@ public class DataLoader implements CommandLineRunner {
             User user;
             user = new User("admin@admin.com", "password",
                 "Amelia", "Anderson", true, "admin");
-            user.setRoles(Arrays.asList(adminRole,userRole));
+            user.setRoles(Arrays.asList(adminRole));
             userRepository.save(user);
 
             user = new User("jim@jim.com", "jim",
@@ -52,8 +52,6 @@ public class DataLoader implements CommandLineRunner {
             user.setRoles(Arrays.asList(userRole));
             userRepository.save(user);
 
-//        }
-//        if(jobRepository.findAll() == null){
             Job job;
             Date date = new Date();
             job = new Job(date,"Lawn mower","Mow my 4 acre lawn weekly",
@@ -75,6 +73,6 @@ public class DataLoader implements CommandLineRunner {
             job = new Job(date,"Dog Sitter","Walk, feed, and love my 3 dogs while I am at work",
                     "Amelia","301-555-8765",userRepository.findByUsername("admin"));
             jobRepository.save(job);
-//        }
+        }
     }
 }
