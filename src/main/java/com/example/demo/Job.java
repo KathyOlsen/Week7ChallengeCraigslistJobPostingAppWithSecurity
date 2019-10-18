@@ -17,15 +17,15 @@ public class Job {
     private Date postedDate;
 
     @NotNull
-    @Size(min=4, max=30)
+    @Size(min=4, max=40)
     private String title;
 
     @NotNull
-    @Size(min=5,max=100)
+    @Size(min=5,max=75)
     private String description;
 
     @NotNull
-    @Size(min=3, max=20)
+    @Size(min=3, max=30)
     private String author;
 
     @NotNull
@@ -48,6 +48,20 @@ public class Job {
         this.description = description;
         this.author = author;
         this.phone = phone;
+    }
+
+    public Job(Date postedDate,
+               @NotNull @Size(min = 4, max = 30) String title,
+               @NotNull @Size(min = 5, max = 100) String description,
+               @NotNull @Size(min = 3, max = 20) String author,
+               @NotNull @Size(min = 10, max = 14) String phone,
+               User user) {
+        this.postedDate = postedDate;
+        this.title = title;
+        this.description = description;
+        this.author = author;
+        this.phone = phone;
+        this.user = user;
     }
 
     public long getId() {

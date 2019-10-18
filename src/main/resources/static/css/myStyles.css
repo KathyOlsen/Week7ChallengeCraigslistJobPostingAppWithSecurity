@@ -1,5 +1,7 @@
 body{
-    background-image: url(https://res.cloudinary.com/dhg2lpfid/image/upload/v1570167265/Attachment-1_1_vgra0i.jpg);
+    /*background-image: url("https://res.cloudinary.com/dhg2lpfid/image/upload/v1571397781/image-450w-380428930_od8fna.jpg");*/
+    background-image: url("https://res-console.cloudinary.com/dhg2lpfid/thumbnails/transform/v1/image/upload//v1571413641/Z3JvdXAtZGl2ZXJzZS1wZW9wbGUtZGlmZmVyZW50LW9jY3VwYXRpb25zLTQ1NTM5NDQ4X3E2Z2g5bA==/drilldown");
+    /*background-image: url(https://res.cloudinary.com/dhg2lpfid/image/upload/v1570167265/Attachment-1_1_vgra0i.jpg);*/
     /*background-color: deepskyblue;*/
     background-size: cover;
     /*font-family: 'Scheherazade', serif;*/
@@ -56,10 +58,10 @@ button{
 .jumbotron{
     background-color: lightyellow;
     alignment: center;
-    padding-top: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 15px;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 20px;
 }
 
 .card{

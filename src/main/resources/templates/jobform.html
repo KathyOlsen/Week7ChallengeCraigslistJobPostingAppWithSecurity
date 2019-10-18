@@ -13,25 +13,24 @@
         <form action="#" th:action="@{/processjob}" th:object="${job}" method="post">
             <input type="hidden" th:field="*{id}" />
             <input type="hidden" th:field="*{postedDate}" />
-            Title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" th:field="*{title}" />
+            Title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8239;<input type="text" th:field="*{title}" />
             <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
             <br>
-            Description:&nbsp;&#8239;<textarea rows="3" th:field="*{description}" />
+            Description:&nbsp;<textarea rows="3" th:field="*{description}" />
             <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
             <br>
-            Author:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" th:field="*{author}" />
+            Author:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" th:field="*{author}" />
             <span th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></span>
             <br>
-            Phone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" th:field="*{phone}" />
+            Phone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" th:field="*{phone}" />
             <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
             <br>
-            <button type="submit" style="background-color: darkblue; color: lightyellow"
-                    onclick="confirmation()"><b>Submit</b></button>
+            <button type="submit" class="btn btn-default"><b>Submit</b></button>
         </form>
     </div>
 </div>
 <div th:insert="base :: footer"></div>
 <div th:insert="base :: bootstrapScripts"></div>
-<script th:src="@{/alerts.js}"></script>
+<!--<script th:src="@{/js/alerts.js}"></script>-->
 </body>
 </html>

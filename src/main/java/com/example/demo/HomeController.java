@@ -66,7 +66,7 @@ public class HomeController {
         return "listSearchResults";
     }
 
-    @RequestMapping("/detail/{id}")
+    @RequestMapping("/detail_job/{id}")
     public String showJob(@PathVariable("id") long id, Model model){
         model.addAttribute("job", jobRepository.findById(id).get());
         return "showdetail";
