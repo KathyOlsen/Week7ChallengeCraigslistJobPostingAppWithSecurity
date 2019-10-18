@@ -53,7 +53,7 @@ public class HomeController {
         job.setPostedDate(date);
         job.setUser(userService.getUser());
         jobRepository.save(job);
-        return "secure";
+        return "redirect:/secure";
     }
 
     @PostMapping("/processsearch")
@@ -93,7 +93,7 @@ public class HomeController {
     @RequestMapping("/delete/{id}")
     public String delJob(@PathVariable("id") long id, Model model){
         jobRepository.deleteById(id);
-        return "secure";
+        return "redirect:/secure";
     }
 
 }
