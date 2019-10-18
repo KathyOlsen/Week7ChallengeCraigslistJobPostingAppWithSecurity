@@ -24,7 +24,7 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception{
-        if(roleRepository.findByRole("'ADMIN'") != null & roleRepository.findByRole("'USER'") != null) {
+        if(roleRepository.findByRole("'ADMIN'") == null & roleRepository.findByRole("'USER'") == null) {
             roleRepository.save(new Role("USER"));
             roleRepository.save(new Role("ADMIN"));
 
